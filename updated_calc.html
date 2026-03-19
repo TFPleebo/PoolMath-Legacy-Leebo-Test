@@ -56,7 +56,7 @@ h1 {
 	color: #1e3a8a;
 }
 .brand-text {
-	font-size: 9px;
+	font-size: 11px;
 	font-weight: 600;
 	letter-spacing: 0.3px;
 	color: #1e3a8a;
@@ -81,7 +81,7 @@ h1 {
 }
 input[type="text"], select {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
-	font-size: 13px;
+	font-size: 14px;
 	padding: 6px 10px;
 	border: 1px solid #d1d5db;
 	border-radius: 6px;
@@ -177,8 +177,8 @@ table[border="1"] > tbody > tr > td {
 }
 /* Goal value styling - makes the target ranges stand out */
 .goal-label {
-	font-size: 13px;
-	color: #666;
+	font-size: 14px;
+	color: #555;
 	font-weight: 400;
 }
 .goal-value {
@@ -187,7 +187,7 @@ table[border="1"] > tbody > tr > td {
 	color: #1e40af;
 }
 .goal-value.not-setup {
-	color: #9ca3af;
+	color: #6b7280;
 	font-weight: 400;
 	font-style: italic;
 }
@@ -386,13 +386,29 @@ div[style*="margin: 12px auto"] {
 	}
 	/* Goal styling for dark mode */
 	.goal-label {
-		color: #9ca3af;
+		color: #d1d5db;
 	}
 	.goal-value {
 		color: #93c5fd;
 	}
 	.goal-value.not-setup {
-		color: #6b7280;
+		color: #9ca3af;
+	}
+	/* Brighten inline #666 grey text in dark mode */
+	td[style*="color:#666"], div[style*="color:#666"], span[style*="color:#666"] {
+		color: #d1d5db !important;
+	}
+	/* Dark mode overrides for info (blue) callout boxes */
+	div[style*="background:#eff6ff"] {
+		background: #1e3a5f !important;
+		border-left-color: #3b82f6 !important;
+		color: #93c5fd !important;
+	}
+	/* Dark mode overrides for warning (yellow) callout boxes */
+	div[style*="background:#fef9c3"] {
+		background: #3d2e00 !important;
+		border-left-color: #f59e0b !important;
+		color: #fcd34d !important;
 	}
 	/* Result fields in dark mode */
 	input[type="text"][readonly].result-field {
