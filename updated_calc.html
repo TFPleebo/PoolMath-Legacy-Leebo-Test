@@ -982,8 +982,9 @@ function CalcCSIto()
 
 function CalcSUG()
 {
-	var cya;
-	var fcGoal = document.getElementById("FCgoal");
+	var cya, from, chlorine;
+	var fcRec   = document.getElementById("FCrec");
+	var fcIdeal = document.getElementById("FCideal");
 
 	cya=parseInt(document.F.CYAfrom.value);
 	document.F.SUGFCswg.value=Math.max(1,Math.floor(cya*0.045+0.7));
@@ -991,21 +992,36 @@ function CalcSUG()
 	document.F.SUGFCtarg.value=Math.max(3,Math.floor(cya/10+3.5));
 	document.F.SUGFCshock.value=Math.max(10,Math.floor(cya*0.393+0.5));
 	document.F.SUGFCmust.value=Math.max(12,Math.floor(cya/2+4.5));
-	if (document.F.FROMpop.selectedIndex==0) {
-		fcGoal.innerHTML="Not Setup";
-		fcGoal.className="goal-value not-setup";
-	}
-	else if (document.F.FROMpop.selectedIndex==3) {
-		fcGoal.innerHTML="1 to 6";
-		fcGoal.className="goal-value";
-	}
+
+	from=document.F.FROMpop.selectedIndex;
+	chlorine=document.F.CHLORINEpop.selectedIndex;
+
+	function setFC(rec, ideal, cls) {
+		var c = cls || "goal-value";
+		fcRec.innerHTML=rec;   fcRec.className=c;
+		fcIdeal.innerHTML=ideal; fcIdeal.className=c;
+		}
+
+	if (from==0 || (from==2 && chlorine==0)) {
+		setFC("Not Setup","Not Setup","goal-value not-setup");
+		}
+	else if (from==3) {
+		setFC("1 – 6","1 – 6");
+		}
+	else if (from==2) {
+		var recLower = (chlorine==2) ? document.F.SUGFCswg.value : document.F.SUGFCmin.value;
+		var upper    = document.F.SUGFCtarg.value;
+		var idealLower = (chlorine==2) ?
+			Math.max(3, Math.floor(cya*0.075+1.5)) :
+			Math.max(3, Math.floor(cya/10+2.5));
+		setFC(recLower+" – "+upper, idealLower+" – "+upper);
+		}
 	else {
-		fcGoal.innerHTML=
-			((document.F.CHLORINEpop.selectedIndex==2)?
-			  document.F.SUGFCswg.value:document.F.SUGFCmin.value)+
-			" to "+document.F.SUGFCtarg.value;
-		fcGoal.className="goal-value";
-	}
+		// Traditional Pool (from==1) — no Rec/Ideal distinction
+		var recLower = (chlorine==2) ? document.F.SUGFCswg.value : document.F.SUGFCmin.value;
+		var upper    = document.F.SUGFCtarg.value;
+		setFC(recLower+" – "+upper, recLower+" – "+upper);
+		}
 	}
 
 function CalcGOAL()
@@ -1832,7 +1848,7 @@ leftmargin=0 rightmargin=0 onload="DoLoaded();">
 
 <tr class=ClassFC>
 <td rowspan=2 align=center><strong>FC</strong></td>
-<td colspan=2 style="height: 100%;"><center><span class="goal-label">Goal:</span> <span id="FCgoal" class="goal-value not-setup">Not Setup</span></center></td>
+<td colspan=2 style="height: 100%;"><center><span class="goal-label">Rec:</span> <span id="FCrec" class="goal-value not-setup">Not Setup</span><br><span class="goal-label">Ideal:</span> <span id="FCideal" class="goal-value not-setup">Not Setup</span></center></td>
 <td rowspan=2 colspan=2 align=left style="line-height:2.0; padding:12px 16px;">
 <div style="margin-bottom:6px;"><strong>Bleach:</strong></div>
 <div style="margin-bottom:8px; padding-left:12px;">Add <INPUT type=text name="FC1oz" size=9 value="0" readonly class=ClassFC onmouseover="withTooltip(this, function() { StatusBleach(document.F.FC1oz.value); });">
