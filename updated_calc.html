@@ -988,7 +988,9 @@ function CalcSUG()
 
 	cya=parseInt(document.F.CYAfrom.value);
 	document.F.SUGFCswg.value=Math.max(1,Math.floor(cya*0.045+0.7));
+	document.F.SUGFCswgtarg.value=Math.max(3,Math.floor(cya*0.075+1.5));
 	document.F.SUGFCmin.value=Math.max(1,Math.floor(cya*0.075+0.7));
+	document.F.SUGFCliqtarg.value=Math.max(3,Math.floor(cya/10+2.5));
 	document.F.SUGFCtarg.value=Math.max(3,Math.floor(cya/10+3.5));
 	document.F.SUGFCshock.value=Math.max(10,Math.floor(cya*0.393+0.5));
 	document.F.SUGFCmust.value=Math.max(12,Math.floor(cya/2+4.5));
@@ -1988,10 +1990,12 @@ or <INPUT type=text name="BORvol" size=9 value="0" readonly class=ClassBOR onmou
 <tr class=ClassSUG><td colspan=3 align=center>Suggested FC Levels</td>
 <td colspan=2 align=left style="line-height:2.0; padding:12px 16px;">
 <div style="margin-bottom:10px;">
-<div style="margin-bottom:6px;"><strong>SWG:</strong> <INPUT type=text name="SUGFCswg" size=4 value="2" readonly class=ClassCH onmouseover="withTooltip(this, function() { StatusSUG('SWG',document.F.SUGFCswg.value); });"></div>
-<div style="margin-bottom:6px;"><strong>Normal:</strong> <INPUT type=text name="SUGFCmin" size=4 value="3" readonly class=ClassSUG onmouseover="withTooltip(this, function() { StatusSUG('Minimum',document.F.SUGFCmin.value); });"> to <INPUT type=text name="SUGFCtarg" size=4 value="6" readonly class=ClassSUG onmouseover="withTooltip(this, function() { StatusSUG('Maximum',document.F.SUGFCtarg.value); });"></div>
+<div style="margin-bottom:6px;"><strong>SWG Minimum:</strong> <INPUT type=text name="SUGFCswg" size=4 value="2" readonly class=ClassCH onmouseover="withTooltip(this, function() { StatusSUG('SWG Minimum',document.F.SUGFCswg.value); });"></div>
+<div style="margin-bottom:6px;"><strong>SWG Target:</strong> <INPUT type=text name="SUGFCswgtarg" size=4 value="4" readonly class=ClassSUG onmouseover="withTooltip(this, function() { StatusSUG('SWG Target',document.F.SUGFCswgtarg.value); });"></div>
+<div style="margin-bottom:6px;"><strong>non-SWG Minimum:</strong> <INPUT type=text name="SUGFCmin" size=4 value="3" readonly class=ClassSUG onmouseover="withTooltip(this, function() { StatusSUG('non-SWG Minimum',document.F.SUGFCmin.value); });"></div>
+<div style="margin-bottom:6px;"><strong>non-SWG Daily Target:</strong> <INPUT type=text name="SUGFCliqtarg" size=4 value="5" readonly class=ClassSUG onmouseover="withTooltip(this, function() { StatusSUG('non-SWG Daily Target',document.F.SUGFCliqtarg.value); });"> to <INPUT type=text name="SUGFCtarg" size=4 value="6" readonly class=ClassSUG onmouseover="withTooltip(this, function() { StatusSUG('non-SWG Maximum',document.F.SUGFCtarg.value); });"></div>
 <div style="margin-bottom:6px;"><strong>Shock:</strong> <INPUT type=text name="SUGFCshock" size=4 value="15" readonly class=ClassSUG onmouseover="withTooltip(this, function() { StatusSUG('Shock',document.F.SUGFCshock.value); });"></div>
-<div><strong>Mustard Algae:</strong> <INPUT type=text name="SUGFCmust" size=4 value="24" readonly class=ClassSUG onmouseover="withTooltip(this, function() { StatusSUG('Mustard Algae Shock',document.F.SUGFCmust.value); });"></div>
+<div><strong>Mustard Algae Shock:</strong> <INPUT type=text name="SUGFCmust" size=4 value="24" readonly class=ClassSUG onmouseover="withTooltip(this, function() { StatusSUG('Mustard Algae Shock',document.F.SUGFCmust.value); });"></div>
 </div>
 <div style="font-size:13px; color:#666;">Suggested target FC levels based on the current CYA level for outdoor pools.</div>
 <div style="font-size:13px; color:#b45309; background:#fef9c3; border-left:3px solid #f59e0b; padding:6px 10px; border-radius:4px; margin-top:8px;">⚠️ <strong>Note:</strong> Most test kits can't detect CYA below ~20 ppm. If your test reads 0, assume it's at least 20 unless you're certain it's truly zero (e.g., freshly filled pool). If CYA is above 90, lower it with water replacement before starting SLAM.</div></td></tr>
