@@ -1018,50 +1018,56 @@ function CalcGOAL()
 	document.F.CHLORINEpop.disabled=(from==3);
 	surface=document.F.SURFACEpop.selectedIndex;
 	document.F.SURFACEpop.disabled=(from==3);
+
+	function setRI(param, rec, ideal, cls) {
+		var c = cls || "goal-value";
+		document.getElementById(param+"rec").innerHTML=rec;
+		document.getElementById(param+"rec").className=c;
+		document.getElementById(param+"ideal").innerHTML=ideal;
+		document.getElementById(param+"ideal").className=c;
+		}
+
 	if (from==0 || (from==2 && (chlorine==0 || surface==0))) {
-		document.getElementById("PHgoal").innerHTML="Not Setup";
-		document.getElementById("PHgoal").className="goal-value not-setup";
-		document.getElementById("TAgoal").innerHTML="Not Setup";
-		document.getElementById("TAgoal").className="goal-value not-setup";
-		document.getElementById("CHgoal").innerHTML="Not Setup";
-		document.getElementById("CHgoal").className="goal-value not-setup";
-		document.getElementById("CYAgoal").innerHTML="Not Setup";
-		document.getElementById("CYAgoal").className="goal-value not-setup";
+		setRI("PH","Not Setup","Not Setup","goal-value not-setup");
+		setRI("TA","Not Setup","Not Setup","goal-value not-setup");
+		setRI("CH","Not Setup","Not Setup","goal-value not-setup");
+		setRI("CYA","Not Setup","Not Setup","goal-value not-setup");
 		}
 	else if (from==1) {
-		document.getElementById("PHgoal").innerHTML="7.2 to 7.8";
-		document.getElementById("PHgoal").className="goal-value";
-		document.getElementById("TAgoal").innerHTML="80 to 120";
-		document.getElementById("TAgoal").className="goal-value";
-		document.getElementById("CHgoal").innerHTML="200 to 400";
-		document.getElementById("CHgoal").className="goal-value";
-		document.getElementById("CYAgoal").innerHTML="30 to 80";
-		document.getElementById("CYAgoal").className="goal-value";
+		setRI("PH","7.2 – 7.8","7.2 – 7.8");
+		setRI("TA","80 – 120","80 – 120");
+		setRI("CH","200 – 400","200 – 400");
+		setRI("CYA","30 – 80","30 – 80");
 		}
 	else if (from==2) {
-		document.getElementById("PHgoal").innerHTML="7.5 to 7.8";
-		document.getElementById("PHgoal").className="goal-value";
-		document.getElementById("TAgoal").innerHTML=(chlorine==1)?(surface==2 && chlorine==1)?"50 to 90+":
-			"70 to 90+":(chlorine==2)?"60 to 80":
-"100 to 120+";
-		document.getElementById("TAgoal").className="goal-value";
-		document.getElementById("CHgoal").innerHTML=(surface==1 && (chlorine==1 || chlorine==3))?"250 to 350":
-		(surface==1 && chlorine==2)?"350 to 450":(surface==2 && (chlorine==1 || chlorine==3))?"0 to 350":
-		(surface==2 && chlorine==2)? "0 to 300":"220 to 320";
-		document.getElementById("CHgoal").className="goal-value";
-		document.getElementById("CYAgoal").innerHTML=(chlorine==2)?
-			"70 to 80":"30 to 50";
-		document.getElementById("CYAgoal").className="goal-value";
+		// pH: same for all TFP pools
+		setRI("PH","7.2 – 8.0","7.6 – 7.8");
+		// TA: same regardless of surface or sanitizer
+		setRI("TA","50 – 90","60 – 80");
+		// CH: depends on surface
+		var chRec, chIdeal;
+		if (surface==2) { // Vinyl
+			chRec="0 – 650"; chIdeal="50 – 550";
+			}
+		else { // Plaster (1) or Fiberglass (3)
+			chRec="250 – 650"; chIdeal="350 – 550";
+			}
+		setRI("CH",chRec,chIdeal);
+		// CYA: depends on chlorine source
+		var cyaRec, cyaIdeal;
+		if (chlorine==2) { // SWG
+			cyaRec="60 – 90"; cyaIdeal="70 – 80";
+			}
+		else { // Liquid Chlorine (1) or Trichlor (3)
+			cyaRec="30 – 60"; cyaIdeal="40 – 50";
+			}
+		setRI("CYA",cyaRec,cyaIdeal);
 		}
 	else if (from==3) {
-		document.getElementById("PHgoal").innerHTML="7.4 to 7.8";
-		document.getElementById("PHgoal").className="goal-value";
-		document.getElementById("TAgoal").innerHTML="50 to 80";
-		document.getElementById("TAgoal").className="goal-value";
-		document.getElementById("CHgoal").innerHTML="120 to 200";
-		document.getElementById("CHgoal").className="goal-value";
-		document.getElementById("CYAgoal").innerHTML="20 to 40";
-		document.getElementById("CYAgoal").className="goal-value";
+		setRI("PH","7.4 – 7.8","7.4 – 7.8");
+		setRI("TA","50 – 80","50 – 80");
+		setRI("CH","120 – 200","120 – 200");
+		setRI("CYA","20 – 40","20 – 40");
 		}
 	}
 
@@ -1861,7 +1867,7 @@ or <INPUT type=text name="FC2vol" size=8 value="0" readonly class=ClassFC onmous
 </tr>
 
 <tr class=ClassPH><td rowspan=2 align=center><strong>pH</strong></td>
-<td colspan=2 style="height: 100%;"><center><span class="goal-label">Goal:</span> <span id="PHgoal" class="goal-value not-setup">Not Setup</span></center></td>
+<td colspan=2 style="height: 100%;"><center><span class="goal-label">Rec:</span> <span id="PHrec" class="goal-value not-setup">Not Setup</span><br><span class="goal-label">Ideal:</span> <span id="PHideal" class="goal-value not-setup">Not Setup</span></center></td>
 <td colspan=2 rowspan=2 align=left style="line-height:2.0; padding:12px 16px;">
 <div style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px dashed #e5c5d0;">Given TA of <INPUT type=text name="PHTA" size=4 readonly class=ClassPH onmouseover="withTooltip(this, function() { StatusWeight(document.F.PHU1oz.value); });" onfocus="GoTo(document.F.PHfrom);"> and Borate of <INPUT type=text name="PHBOR" size=4 readonly class=ClassPH></div>
 <div style="margin-bottom:6px;"><strong>To raise pH:</strong></div>
@@ -1890,7 +1896,7 @@ or <INPUT type=text name="PHD2vol" size=7 value="0" readonly class=ClassPH onmou
 </tr>
 
 <tr class=ClassTA><td rowspan=2 align=center><strong>TA</strong></td>
-<td colspan=2 style="height: 100%;"><center><span class="goal-label">Goal:</span> <span id="TAgoal" class="goal-value not-setup">Not Setup</span></center></td>
+<td colspan=2 style="height: 100%;"><center><span class="goal-label">Rec:</span> <span id="TArec" class="goal-value not-setup">Not Setup</span><br><span class="goal-label">Ideal:</span> <span id="TAideal" class="goal-value not-setup">Not Setup</span></center></td>
 <td colspan=2 rowspan=2 align=left style="line-height:2.0; padding:12px 16px;">
 <div style="margin-bottom:6px;"><strong>To raise TA:</strong></div>
 <div style="margin-bottom:8px; padding-left:12px;">Add <INPUT type=text name="TAoz" size=7 value="0" readonly class=ClassTA onmouseover="withTooltip(this, function() { StatusWeight(document.F.TAoz.value); });" onfocus="GoTo(document.F.TAfrom);"> by weight
@@ -1905,7 +1911,7 @@ or <INPUT type=text name="TAvol" size=8 value="0" readonly class=ClassTA onmouse
 </tr>
 
 <tr class=ClassCH><td rowspan=2 align=center><strong>CH</strong></td>
-<td colspan=2 style="height: 100%;"><center><span class="goal-label">Goal:</span> <span id="CHgoal" class="goal-value not-setup">Not Setup</span></center></td>
+<td colspan=2 style="height: 100%;"><center><span class="goal-label">Rec:</span> <span id="CHrec" class="goal-value not-setup">Not Setup</span><br><span class="goal-label">Ideal:</span> <span id="CHideal" class="goal-value not-setup">Not Setup</span></center></td>
 <td colspan=2 rowspan=2 align=left style="line-height:2.0; padding:12px 16px;">
 <div style="margin-bottom:6px;"><strong>To raise CH:</strong></div>
 <div style="margin-bottom:4px; padding-left:12px;">Add <INPUT type=text name="CH1oz" size=8 value="0" readonly class=ClassCH onmouseover="withTooltip(this, function() { StatusWeight(document.F.CH1oz.value); });" onfocus="GoTo(document.F.CHfrom);"> by weight
@@ -1921,7 +1927,7 @@ or <INPUT type=text name="CH2vol" size=9 value="0" readonly class=ClassCH onmous
 </tr>
 
 <tr class=ClassCYA><td rowspan=2 align=center><strong>CYA</strong></td>
-<td colspan=2 style="height: 100%;"><center><span class="goal-label">Goal:</span> <span id="CYAgoal" class="goal-value not-setup">Not Setup</span></center></td>
+<td colspan=2 style="height: 100%;"><center><span class="goal-label">Rec:</span> <span id="CYArec" class="goal-value not-setup">Not Setup</span><br><span class="goal-label">Ideal:</span> <span id="CYAideal" class="goal-value not-setup">Not Setup</span></center></td>
 <td colspan=2 rowspan=2 align=left style="line-height:2.0; padding:12px 16px;">
 <div style="margin-bottom:6px;"><strong>To raise CYA:</strong></div>
 <div style="margin-bottom:4px; padding-left:12px;">Add <INPUT type=text name="CYA1oz" size=7 value="0" readonly class=ClassCYA onmouseover="withTooltip(this, function() { StatusWeight(document.F.CYA1oz.value); });" onfocus="GoTo(document.F.CYAfrom);"> by weight
