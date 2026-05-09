@@ -22,7 +22,7 @@ body {
 }
 td {
 	font-size: 15px;
-	padding: 8px;
+	padding: 6px;
 }
 h1 {
 	text-align: center;
@@ -36,7 +36,7 @@ h1 {
 	align-items: center;
 	justify-content: center;
 	gap: 48px;
-	padding: 20px 0 10px;
+	padding: 12px 0 6px;
 }
 .brand-link {
 	display: inline-flex;
@@ -257,8 +257,8 @@ input[type="text"][readonly].result-field {
 }
 /* Improve spacing in instruction cells */
 td[colspan="2"][align="left"], td[colspan="2"][rowspan] {
-	line-height: 1.8;
-	padding: 12px 14px;
+	line-height: 1.5;
+	padding: 8px 12px;
 }
 /* Style for note text at bottom of cells */
 td[colspan="2"] br:last-of-type + * {
@@ -1852,7 +1852,7 @@ leftmargin=0 rightmargin=0 onload="DoLoaded();">
 <tr class=ClassFC>
 <td rowspan=2 align=center><strong>FC</strong></td>
 <td colspan=2 style="height: 100%;"><center><span class="goal-label">Rec:</span> <span id="FCrec" class="goal-value not-setup">Not Setup</span><br><span class="goal-label">Ideal:</span> <span id="FCideal" class="goal-value not-setup">Not Setup</span></center></td>
-<td rowspan=2 colspan=2 align=left style="line-height:2.0; padding:12px 16px;">
+<td rowspan=2 colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>Bleach:</strong></div>
 <div style="margin-bottom:8px; padding-left:12px;">Add <INPUT type=text name="FC1oz" size=9 value="0" readonly class=ClassFC onmouseover="withTooltip(this, function() { StatusBleach(document.F.FC1oz.value); });">
 of <INPUT type=text name="FCpcnt" size=4 value="6" onchange="CalcFC(); SaveSettings();"> <INPUT type=text name="FCtrade" size=6 value="weight" readonly class=ClassFC> % bleach. Jug size
@@ -1887,7 +1887,7 @@ or <INPUT type=text name="FC2vol" size=8 value="0" readonly class=ClassFC onmous
 
 <tr class=ClassPH><td rowspan=2 align=center><strong>pH</strong></td>
 <td colspan=2 style="height: 100%;"><center><span class="goal-label">Rec:</span> <span id="PHrec" class="goal-value not-setup">Not Setup</span><br><span class="goal-label">Ideal:</span> <span id="PHideal" class="goal-value not-setup">Not Setup</span></center></td>
-<td colspan=2 rowspan=2 align=left style="line-height:2.0; padding:12px 16px;">
+<td colspan=2 rowspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:8px; padding-bottom:8px; border-bottom:1px dashed #e5c5d0;">Given TA of <INPUT type=text name="PHTA" size=4 readonly class=ClassPH onmouseover="withTooltip(this, function() { StatusWeight(document.F.PHU1oz.value); });" onfocus="GoTo(document.F.PHfrom);"> and Borate of <INPUT type=text name="PHBOR" size=4 readonly class=ClassPH></div>
 <div style="margin-bottom:6px;"><strong>To raise pH:</strong></div>
 <div style="margin-bottom:4px; padding-left:12px;">Add <INPUT type=text name="PHU1oz" size=7 value="0" readonly class=ClassPH onmouseover="withTooltip(this, function() { StatusWeight(document.F.PHU1oz.value); });"> by weight
@@ -1916,7 +1916,7 @@ or <INPUT type=text name="PHD2vol" size=7 value="0" readonly class=ClassPH onmou
 
 <tr class=ClassTA><td rowspan=2 align=center><strong>TA</strong></td>
 <td colspan=2 style="height: 100%;"><center><span class="goal-label">Rec:</span> <span id="TArec" class="goal-value not-setup">Not Setup</span><br><span class="goal-label">Ideal:</span> <span id="TAideal" class="goal-value not-setup">Not Setup</span></center></td>
-<td colspan=2 rowspan=2 align=left style="line-height:2.0; padding:12px 16px;">
+<td colspan=2 rowspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>To raise TA:</strong></div>
 <div style="margin-bottom:8px; padding-left:12px;">Add <INPUT type=text name="TAoz" size=7 value="0" readonly class=ClassTA onmouseover="withTooltip(this, function() { StatusWeight(document.F.TAoz.value); });" onfocus="GoTo(document.F.TAfrom);"> by weight
 or <INPUT type=text name="TAvol" size=8 value="0" readonly class=ClassTA onmouseover="withTooltip(this, function() { StatusVolume(document.F.TAvol.value); });"> by volume of baking soda</div>
@@ -1931,7 +1931,7 @@ or <INPUT type=text name="TAvol" size=8 value="0" readonly class=ClassTA onmouse
 
 <tr class=ClassCH><td rowspan=2 align=center><strong>CH</strong></td>
 <td colspan=2 style="height: 100%;"><center><span class="goal-label">Rec:</span> <span id="CHrec" class="goal-value not-setup">Not Setup</span><br><span class="goal-label">Ideal:</span> <span id="CHideal" class="goal-value not-setup">Not Setup</span></center></td>
-<td colspan=2 rowspan=2 align=left style="line-height:2.0; padding:12px 16px;">
+<td colspan=2 rowspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>To raise CH:</strong></div>
 <div style="margin-bottom:4px; padding-left:12px;">Add <INPUT type=text name="CH1oz" size=8 value="0" readonly class=ClassCH onmouseover="withTooltip(this, function() { StatusWeight(document.F.CH1oz.value); });" onfocus="GoTo(document.F.CHfrom);"> by weight
 or <INPUT type=text name="CH1vol" size=9 value="0" readonly class=ClassCH onmouseover="withTooltip(this, function() { StatusVolume(document.F.CH1vol.value); });"> by volume of calcium chloride</div>
@@ -1947,7 +1947,7 @@ or <INPUT type=text name="CH2vol" size=9 value="0" readonly class=ClassCH onmous
 
 <tr class=ClassCYA><td rowspan=2 align=center><strong>CYA</strong></td>
 <td colspan=2 style="height: 100%;"><center><span class="goal-label">Rec:</span> <span id="CYArec" class="goal-value not-setup">Not Setup</span><br><span class="goal-label">Ideal:</span> <span id="CYAideal" class="goal-value not-setup">Not Setup</span></center></td>
-<td colspan=2 rowspan=2 align=left style="line-height:2.0; padding:12px 16px;">
+<td colspan=2 rowspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>To raise CYA:</strong></div>
 <div style="margin-bottom:4px; padding-left:12px;">Add <INPUT type=text name="CYA1oz" size=7 value="0" readonly class=ClassCYA onmouseover="withTooltip(this, function() { StatusWeight(document.F.CYA1oz.value); });" onfocus="GoTo(document.F.CYAfrom);"> by weight
 or <INPUT type=text name="CYA1vol" size=8 value="0" readonly class=ClassCYA onmouseover="withTooltip(this, function() { StatusVolume(document.F.CYA1vol.value); });"> by volume of stabilizer</div>
@@ -1961,13 +1961,13 @@ or <INPUT type=text name="CYA1vol" size=8 value="0" readonly class=ClassCYA onmo
 <td align=center><INPUT type=text name="CYAto" size=4 value="40" onchange="CalcCYA(); CalcCSIto();"></td>
 </tr>
 
-<tr class=ClassSALT><td align=center><strong>Salt</strong></td><td align=center><INPUT type=text name="SALTfrom" size=5 value="0" onchange="CalcSALT(); CalcCSIfrom();"></td><td align=center><INPUT type=text name="SALTto" size=5 value="0" onchange="CalcSALT(); CalcCSIto();"></td><td colspan=2 align=left style="line-height:2.0; padding:12px 16px;">
+<tr class=ClassSALT><td align=center><strong>Salt</strong></td><td align=center><INPUT type=text name="SALTfrom" size=5 value="0" onchange="CalcSALT(); CalcCSIfrom();"></td><td align=center><INPUT type=text name="SALTto" size=5 value="0" onchange="CalcSALT(); CalcCSIto();"></td><td colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>To raise Salt:</strong></div>
 <div style="margin-bottom:8px; padding-left:12px;">Add <INPUT type=text name="SALTlb" size=8 value="0" readonly class=ClassSALT onmouseover="withTooltip(this, function() { StatusBags(document.F.SALTlb.value); });" onfocus="GoTo(document.F.BORfrom);"> of salt</div>
 <div style="margin-bottom:6px;"><strong>To lower Salt:</strong></div>
 <div style="padding-left:12px;">Replace <INPUT type=text name="SALTpcnt" size=4 value="some" readonly class=ClassSALT onmouseover="withTooltip(this, function() { StatusPcnt(document.F.SALTpcnt.value); });"> of the water with new water</div></td></tr>
 
-<tr class=ClassBOR><td align=center><strong>Borate</strong></td><td align=center><INPUT type=text name="BORfrom" size=4 value="0" onchange="CalcBOR(); CalcPH(); CalcCSIfrom();"></td><td align=center><INPUT type=text name="BORto" size=4 value="0" onchange="CalcBOR(); CalcCSIto();"></td><td colspan=2 align=left style="line-height:2.0; padding:12px 16px;">
+<tr class=ClassBOR><td align=center><strong>Borate</strong></td><td align=center><INPUT type=text name="BORfrom" size=4 value="0" onchange="CalcBOR(); CalcPH(); CalcCSIfrom();"></td><td align=center><INPUT type=text name="BORto" size=4 value="0" onchange="CalcBOR(); CalcCSIto();"></td><td colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>To raise Borate:</strong></div>
 <div style="margin-bottom:4px; padding-left:12px;">Add <INPUT type=text name="BORoz" size=8 value="0" readonly class=ClassBOR onmouseover="withTooltip(this, function() { StatusBorax(document.F.BORoz.value); });" onfocus="GoTo(document.F.TEMP);"> by weight
 or <INPUT type=text name="BORvol" size=9 value="0" readonly class=ClassBOR onmouseover="withTooltip(this, function() { StatusVolume(document.F.BORvol.value); });"> by volume of <select name="BORpop" onchange="CalcBOR(); SaveSettings();">
@@ -1982,14 +1982,14 @@ or <INPUT type=text name="BORvol" size=9 value="0" readonly class=ClassBOR onmou
 
 <tr class=ClassTEMP><td align=center><strong>Temp</strong></td><td colspan=2 align=center><nobr><INPUT type=text name="TEMP" size=3 value="84" onchange="CalcCSIfrom(); CalcCSIto();"><input type=text name="TEMPunit" size=10 readonly value="Fahrenheit" class=ClassTEMP onfocus="GoTo(document.F.SZwid);"></nobr></td><td colspan=2 class=ClassNORM align=center style="padding:12px 16px;"><span style="font-size:13px; color:#666;">Water temperature for CSI calculation</span></td></tr>
 
-<tr class=ClassCSI><td align=center><strong>CSI</strong></td><td align=center><INPUT type=text name="CSIfrom" size=5 value="0" readonly class=ClassCSI onmouseover="withTooltip(this, function() { StatusCSI(document.F.CSIfrom.value); });"></td><td align=center><INPUT type=text name="CSIto" size=5 value="0" readonly class=ClassCSI onmouseover="withTooltip(this, function() { StatusCSI(document.F.CSIto.value); });"></td><td colspan=2 align=left style="line-height:2.0; padding:12px 16px;">
+<tr class=ClassCSI><td align=center><strong>CSI</strong></td><td align=center><INPUT type=text name="CSIfrom" size=5 value="0" readonly class=ClassCSI onmouseover="withTooltip(this, function() { StatusCSI(document.F.CSIfrom.value); });"></td><td align=center><INPUT type=text name="CSIto" size=5 value="0" readonly class=ClassCSI onmouseover="withTooltip(this, function() { StatusCSI(document.F.CSIto.value); });"></td><td colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>Calcite Saturation Index</strong> <span style="color:#666;">(requires pH, TA, CH, CYA, Temp; uses Borate, Salt)</span></div>
 <div style="padding-left:12px;">• Less than <strong>-0.6</strong>: Potential problems for plaster, tile, stone, and pebble pools</div>
 <div style="padding-left:12px;">• Greater than <strong>+0.6</strong>: Potential problems for all pools</div>
 <div style="font-size:13px; color:#1e40af; background:#eff6ff; border-left:3px solid #93c5fd; padding:6px 10px; border-radius:4px; margin-top:8px;">ℹ️ <strong>Note:</strong> CSI is most important for plaster, tile, stone, and pebble surfaces. If you have a <strong>vinyl or fiberglass</strong> pool, CH levels matter much less and CSI is generally not a concern — you have considerably more flexibility with those parameters.</div></td></tr>
 
 <tr class=ClassSUG><td colspan=3 align=center>Suggested FC Levels</td>
-<td colspan=2 align=left style="line-height:2.0; padding:12px 16px;">
+<td colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:10px;">
 <div style="margin-bottom:6px;"><strong>SWG Minimum:</strong> <INPUT type=text name="SUGFCswg" size=4 value="2" readonly class=ClassCH onmouseover="withTooltip(this, function() { StatusSUG('SWG Minimum',document.F.SUGFCswg.value); });"></div>
 <div style="margin-bottom:6px;"><strong>SWG Target:</strong> <INPUT type=text name="SUGFCswgtarg" size=4 value="4" readonly class=ClassSUG onmouseover="withTooltip(this, function() { StatusSUG('SWG Target',document.F.SUGFCswgtarg.value); });"> to <INPUT type=text name="SUGFCtargswg" size=4 value="6" readonly class=ClassSUG onmouseover="withTooltip(this, function() { StatusSUG('SWG Maximum',document.F.SUGFCtarg.value); });"></div>
@@ -2002,7 +2002,7 @@ or <INPUT type=text name="BORvol" size=9 value="0" readonly class=ClassBOR onmou
 <div style="font-size:13px; color:#b45309; background:#fef9c3; border-left:3px solid #f59e0b; padding:6px 10px; border-radius:4px; margin-top:8px;">⚠️ <strong>Note:</strong> Most test kits can't detect CYA below ~20 ppm. If your test reads 0, assume it's at least 20 unless you're certain it's truly zero (e.g., freshly filled pool). If CYA is above 90, lower it with water replacement before starting SLAM.</div></td></tr>
 
 <tr class=ClassGOALS><td colspan=3 align=center>Suggested Goal Levels</td>
-<td colspan=2 align=left style="line-height:2.0; padding:12px 16px;">
+<td colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="display:grid; grid-template-columns:auto 1fr; gap:6px 12px; margin-bottom:10px; align-items:center;">
 <strong>Goal levels from:</strong>
 <select name="FROMpop" onchange="CalcGOAL(); SaveSettings();">
