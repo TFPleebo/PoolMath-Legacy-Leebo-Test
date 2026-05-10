@@ -495,64 +495,44 @@ div[style*="margin: 12px auto"] {
 		color: #9ca3af !important;
 	}
 }
-/* === SCROLL-REVEAL APP BAR === */
+/* === SCROLL-REVEAL BAR === */
 .tfp-reveal {
 	position: fixed;
 	bottom: -120px;
 	left: 0;
 	right: 0;
-	background: #1a2744;
-	text-align: center;
-	padding: 14px 20px 16px;
 	z-index: 9999;
-	box-shadow: 0 -4px 20px rgba(0,0,0,0.35);
 	transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .tfp-reveal.visible {
 	bottom: 0;
 }
-.tfp-reveal-text {
-	font-size: 15px;
-	font-weight: 700;
-	color: #fff;
-	margin-bottom: 10px;
-	letter-spacing: -0.2px;
-}
-.tfp-reveal-btn {
-	display: inline-block;
+.tfp-reveal-link {
+	display: block;
 	background: #2563eb;
-	color: #fff;
+	text-align: center;
+	padding: 18px 20px;
 	text-decoration: none;
-	font-size: 15px;
-	font-weight: 600;
-	padding: 12px 32px;
-	border-radius: 50px;
-	letter-spacing: -0.2px;
-	transition: background 0.2s;
-	min-width: 200px;
+	border-top: 3px solid #1d4ed8;
+	box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
 }
-.tfp-reveal-btn:hover {
+.tfp-reveal-link:hover {
 	background: #1d4ed8;
 }
-.tfp-reveal-dismiss {
-	position: absolute;
-	top: 8px;
-	right: 12px;
-	background: none;
-	border: none;
-	color: #93c5fd;
-	font-size: 18px;
-	cursor: pointer;
-	padding: 4px 8px;
-	line-height: 1;
+.tfp-reveal-text {
+	font-size: 13px;
+	font-weight: 500;
+	color: rgba(255,255,255,0.8);
+	margin-bottom: 2px;
 }
-.tfp-reveal-dismiss:hover {
+.tfp-reveal-cta {
+	font-size: 17px;
+	font-weight: 700;
 	color: #fff;
-	transform: none;
-	box-shadow: none;
+	letter-spacing: -0.3px;
 }
 body.bar-visible {
-	padding-bottom: 90px;
+	padding-bottom: 80px;
 }
 </STYLE>
 <SCRIPT LANGUAGE="JavaScript" type="text/javascript"><!--
@@ -2175,9 +2155,10 @@ Adding <INPUT type=text name="EFFoz" size=6 value="0" onchange="CalcEFF();"> <IN
 <noscript><img src="/log____image.gif?summarylog&amp;js=false" alt=""></noscript>
 
 <div class="tfp-reveal" id="tfpReveal">
-	<button class="tfp-reveal-dismiss" onclick="dismissBar()" aria-label="Dismiss">✕</button>
-	<div class="tfp-reveal-text">Want help with your pool?</div>
-	<a class="tfp-reveal-btn" href="https://www.troublefreepool.com">Visit TroubleFreePool.com →</a>
+	<a class="tfp-reveal-link" href="https://www.troublefreepool.com">
+		<div class="tfp-reveal-text">Want help with your pool?</div>
+		<div class="tfp-reveal-cta">Visit TroubleFreePool.com →</div>
+	</a>
 </div>
 
 <script>
@@ -2192,12 +2173,6 @@ Adding <INPUT type=text name="EFFoz" size=6 value="0" onchange="CalcEFF();"> <IN
 		bar.classList.add('visible');
 		document.body.classList.add('bar-visible');
 	}
-
-	window.dismissBar = function() {
-		dismissed = true;
-		bar.classList.remove('visible');
-		document.body.classList.remove('bar-visible');
-	};
 
 	window.addEventListener('scroll', function() {
 		var scrolled = window.scrollY || document.documentElement.scrollTop;
