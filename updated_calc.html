@@ -495,85 +495,6 @@ div[style*="margin: 12px auto"] {
 		color: #9ca3af !important;
 	}
 }
-/* === HAMBURGER MENU === */
-.hamburger-wrap {
-	position: absolute;
-	left: 12px;
-	top: 12px;
-	z-index: 1000;
-}
-.hamburger-btn {
-	background: none;
-	border: none;
-	font-size: 24px;
-	color: #1e40af;
-	cursor: pointer;
-	padding: 4px 8px;
-	border-radius: 6px;
-	line-height: 1;
-	transition: background 0.2s;
-}
-.hamburger-btn:hover {
-	background: rgba(37, 99, 235, 0.1);
-	transform: none;
-	box-shadow: none;
-}
-.hamburger-menu {
-	display: none;
-	position: absolute;
-	top: 40px;
-	left: 0;
-	background: #fff;
-	border: 1px solid #e5e7eb;
-	border-radius: 10px;
-	box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-	min-width: 220px;
-	overflow: hidden;
-	flex-direction: column;
-}
-.hamburger-menu.open {
-	display: flex;
-}
-.hamburger-menu a {
-	display: block;
-	padding: 12px 16px;
-	text-decoration: none;
-	color: #1f2937;
-	font-size: 14px;
-	font-weight: 500;
-	border-bottom: 1px solid #f3f4f6;
-	transition: background 0.15s;
-}
-.hamburger-menu a:last-child {
-	border-bottom: none;
-	color: #1e40af;
-	font-weight: 600;
-}
-.hamburger-menu a:hover {
-	background: #f0f7ff;
-}
-.site-header {
-	position: relative;
-}
-@media (prefers-color-scheme: dark) {
-	.hamburger-btn {
-		color: #93c5fd;
-	}
-	.hamburger-menu {
-		background: #1f2937;
-		border-color: #374151;
-	}
-	.hamburger-menu a {
-		color: #e5e7eb;
-		border-bottom-color: #374151;
-	}
-	.hamburger-menu a:last-child {
-		color: #60a5fa;
-	}
-	.hamburger-menu a:hover {
-		background: #2d3748;
-	}
-}
 </STYLE>
 <SCRIPT LANGUAGE="JavaScript" type="text/javascript"><!--
 
@@ -1838,16 +1759,6 @@ function DoLoaded()
 	li.src=ls;
 	}
 
-function toggleMenu() {
-	var menu = document.getElementById('hamburgerMenu');
-	menu.classList.toggle('open');
-}
-document.addEventListener('click', function(e) {
-	var wrap = document.querySelector('.hamburger-wrap');
-	if (wrap && !wrap.contains(e.target)) {
-		document.getElementById('hamburgerMenu').classList.remove('open');
-	}
-});
 //--></SCRIPT>
 </HEAD>
 <BODY bgcolor="#FFFFFF" text="#000000" link="#000066" vlink="#333333"
@@ -1859,16 +1770,6 @@ leftmargin=0 rightmargin=0 onload="DoLoaded();">
 <tr><td align=left>
 
 <header class="site-header" role="banner">
-	<!-- Hamburger Menu -->
-	<div class="hamburger-wrap">
-		<button class="hamburger-btn" aria-label="Open menu" onclick="toggleMenu()">&#9776;</button>
-		<nav class="hamburger-menu" id="hamburgerMenu">
-			<a href="https://www.troublefreepool.com">🏠 TroubleFreePool.com</a>
-			<a href="https://www.troublefreepool.com/forums/">💬 Forum</a>
-			<a href="https://www.troublefreepool.com/wiki/index.php">📖 Pool School / Wiki</a>
-			<a href="https://apps.apple.com/app/apple-store/id1228819359?pt=118428848&ct=legacy-calculator&mt=8">📱 Download Pool Math App</a>
-		</nav>
-	</div>
 	<div class="header-title">Pool Math</div>
 	<a class="brand-link" href="http://www.troublefreepool.com" aria-label="TroubleFreePool home">
 		<div class="brand-block">
