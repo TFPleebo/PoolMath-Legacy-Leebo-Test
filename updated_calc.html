@@ -511,10 +511,13 @@ div[style*="margin: 12px auto"] {
 	display: block;
 	background: #2563eb;
 	text-align: center;
-	padding: 14px 20px;
+	padding: 14px 44px 14px 20px;
 	text-decoration: none;
 	border-top: 3px solid #1d4ed8;
 	box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+}
+.tfp-reveal {
+	position: relative;
 }
 .tfp-reveal-link:hover {
 	background: #1d4ed8;
@@ -533,6 +536,25 @@ div[style*="margin: 12px auto"] {
 }
 body.bar-visible {
 	padding-bottom: 80px;
+}
+.tfp-reveal-dismiss {
+	position: absolute;
+	top: 50%;
+	right: 12px;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	color: rgba(255,255,255,0.7);
+	font-size: 16px;
+	cursor: pointer;
+	padding: 8px;
+	line-height: 1;
+	box-shadow: none;
+}
+.tfp-reveal-dismiss:hover {
+	color: #fff;
+	transform: translateY(-50%);
+	box-shadow: none;
 }
 </STYLE>
 <SCRIPT LANGUAGE="JavaScript" type="text/javascript"><!--
@@ -2158,6 +2180,7 @@ Adding <INPUT type=text name="EFFoz" size=6 value="0" onchange="CalcEFF();"> <IN
 	<a class="tfp-reveal-link" href="https://www.troublefreepool.com">
 		<div class="tfp-reveal-cta">Need pool help? Visit TroubleFreePool.com →</div>
 	</a>
+	<button class="tfp-reveal-dismiss" onclick="dismissBar(event)" aria-label="Dismiss">✕</button>
 </div>
 
 <script>
@@ -2172,6 +2195,13 @@ Adding <INPUT type=text name="EFFoz" size=6 value="0" onchange="CalcEFF();"> <IN
 		bar.classList.add('visible');
 		document.body.classList.add('bar-visible');
 	}
+
+	window.dismissBar = function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		bar.classList.remove('visible');
+		document.body.classList.remove('bar-visible');
+	};
 
 	window.addEventListener('scroll', function() {
 		var scrolled = window.scrollY || document.documentElement.scrollTop;
