@@ -495,33 +495,54 @@ div[style*="margin: 12px auto"] {
 		color: #9ca3af !important;
 	}
 }
-/* === SLIM NAV BAR === */
-.tfp-nav {
-	background: #1e3a8a;
-	padding: 7px 16px;
+/* === STICKY FOOTER BAR === */
+.tfp-sticky {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #1a2744;
 	text-align: center;
+	padding: 8px 16px 10px;
+	z-index: 9999;
+	box-shadow: 0 -2px 12px rgba(0,0,0,0.25);
+}
+.tfp-sticky-cta {
 	font-size: 13px;
-	width: 100%;
+	font-weight: 600;
+	color: #fff;
+	margin-bottom: 6px;
 }
-.tfp-nav a {
-	color: #bfdbfe;
+.tfp-sticky-badges {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 6px;
+}
+.tfp-sticky-badges img {
+	height: 34px;
+	display: block;
+}
+.tfp-sticky-nav {
+	font-size: 11px;
+	color: #93c5fd;
+}
+.tfp-sticky-nav a {
+	color: #93c5fd;
 	text-decoration: none;
-	font-weight: 500;
-	white-space: nowrap;
 	padding: 0 4px;
-	transition: color 0.15s;
 }
-.tfp-nav a:hover {
-	color: #ffffff;
+.tfp-sticky-nav a:hover {
+	color: #fff;
 }
-.tfp-nav .sep {
+.tfp-sticky-nav .sep {
 	color: #3b82f6;
-	margin: 0 6px;
+	margin: 0 2px;
 }
-@media (prefers-color-scheme: dark) {
-	.tfp-nav {
-		background: #172554;
-	}
+/* Push page content up so footer doesn't cover it */
+body {
+	padding-bottom: 110px;
 }
 </STYLE>
 <SCRIPT LANGUAGE="JavaScript" type="text/javascript"><!--
@@ -2143,12 +2164,23 @@ Adding <INPUT type=text name="EFFoz" size=6 value="0" onchange="CalcEFF();"> <IN
 </center>
 <noscript><img src="/log____image.gif?summarylog&amp;js=false" alt=""></noscript>
 
-<div class="tfp-nav">
-	<a href="https://www.troublefreepool.com">TroubleFreePool.com</a>
-	<span class="sep">|</span>
-	<a href="https://www.troublefreepool.com/wiki/index.php/Pool_School">Pool School</a>
-	<span class="sep">|</span>
-	<a href="https://www.troublefreepool.com/forums/">Forum</a>
+<div class="tfp-sticky">
+	<div class="tfp-sticky-cta">Get the Pool Math App</div>
+	<div class="tfp-sticky-badges">
+		<a href="https://apps.apple.com/app/apple-store/id1228819359?pt=118428848&ct=legacy-calculator&mt=8">
+			<img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+		</a>
+		<a href="https://play.google.com/store/apps/details?id=com.troublefreepool.poolmath&hl=en_US">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+		</a>
+	</div>
+	<div class="tfp-sticky-nav">
+		<a href="https://www.troublefreepool.com">TroubleFreePool.com</a>
+		<span class="sep">·</span>
+		<a href="https://www.troublefreepool.com/wiki/index.php/Pool_School">Pool School</a>
+		<span class="sep">·</span>
+		<a href="https://www.troublefreepool.com/forums/">Forum</a>
+	</div>
 </div>
 </BODY>
 </HTML>
