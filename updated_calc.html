@@ -495,54 +495,64 @@ div[style*="margin: 12px auto"] {
 		color: #9ca3af !important;
 	}
 }
-/* === STICKY FOOTER BAR === */
-.tfp-sticky {
+/* === SCROLL-REVEAL APP BAR === */
+.tfp-reveal {
 	position: fixed;
-	bottom: 0;
+	bottom: -120px;
 	left: 0;
 	right: 0;
 	background: #1a2744;
 	text-align: center;
-	padding: 8px 16px 10px;
+	padding: 14px 20px 16px;
 	z-index: 9999;
-	box-shadow: 0 -2px 12px rgba(0,0,0,0.25);
+	box-shadow: 0 -4px 20px rgba(0,0,0,0.35);
+	transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.tfp-sticky-cta {
-	font-size: 13px;
-	font-weight: 600;
+.tfp-reveal.visible {
+	bottom: 0;
+}
+.tfp-reveal-text {
+	font-size: 15px;
+	font-weight: 700;
 	color: #fff;
-	margin-bottom: 6px;
+	margin-bottom: 10px;
+	letter-spacing: -0.2px;
 }
-.tfp-sticky-badges {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
-	margin-bottom: 6px;
-}
-.tfp-sticky-badges img {
-	height: 34px;
-	display: block;
-}
-.tfp-sticky-nav {
-	font-size: 11px;
-	color: #93c5fd;
-}
-.tfp-sticky-nav a {
-	color: #93c5fd;
+.tfp-reveal-btn {
+	display: inline-block;
+	background: #2563eb;
+	color: #fff;
 	text-decoration: none;
-	padding: 0 4px;
+	font-size: 15px;
+	font-weight: 600;
+	padding: 12px 32px;
+	border-radius: 50px;
+	letter-spacing: -0.2px;
+	transition: background 0.2s;
+	min-width: 200px;
 }
-.tfp-sticky-nav a:hover {
+.tfp-reveal-btn:hover {
+	background: #1d4ed8;
+}
+.tfp-reveal-dismiss {
+	position: absolute;
+	top: 8px;
+	right: 12px;
+	background: none;
+	border: none;
+	color: #93c5fd;
+	font-size: 18px;
+	cursor: pointer;
+	padding: 4px 8px;
+	line-height: 1;
+}
+.tfp-reveal-dismiss:hover {
 	color: #fff;
+	transform: none;
+	box-shadow: none;
 }
-.tfp-sticky-nav .sep {
-	color: #3b82f6;
-	margin: 0 2px;
-}
-/* Push page content up so footer doesn't cover it */
-body {
-	padding-bottom: 110px;
+body.bar-visible {
+	padding-bottom: 90px;
 }
 </STYLE>
 <SCRIPT LANGUAGE="JavaScript" type="text/javascript"><!--
@@ -2164,23 +2174,39 @@ Adding <INPUT type=text name="EFFoz" size=6 value="0" onchange="CalcEFF();"> <IN
 </center>
 <noscript><img src="/log____image.gif?summarylog&amp;js=false" alt=""></noscript>
 
-<div class="tfp-sticky">
-	<div class="tfp-sticky-cta">Get the Pool Math App</div>
-	<div class="tfp-sticky-badges">
-		<a href="https://apps.apple.com/app/apple-store/id1228819359?pt=118428848&ct=legacy-calculator&mt=8">
-			<img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-		</a>
-		<a href="https://play.google.com/store/apps/details?id=com.troublefreepool.poolmath&hl=en_US">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
-		</a>
-	</div>
-	<div class="tfp-sticky-nav">
-		<a href="https://www.troublefreepool.com">TroubleFreePool.com</a>
-		<span class="sep">·</span>
-		<a href="https://www.troublefreepool.com/wiki/index.php/Pool_School">Pool School</a>
-		<span class="sep">·</span>
-		<a href="https://www.troublefreepool.com/forums/">Forum</a>
-	</div>
+<div class="tfp-reveal" id="tfpReveal">
+	<button class="tfp-reveal-dismiss" onclick="dismissBar()" aria-label="Dismiss">✕</button>
+	<div class="tfp-reveal-text">Pool Math is better on the app</div>
+	<a class="tfp-reveal-btn" href="https://www.troublefreepool.com/blog/2026/02/06/pool-chemical-calculator-poolmath/">Get the Pool Math App →</a>
 </div>
+
+<script>
+(function(){
+	var bar = document.getElementById('tfpReveal');
+	var shown = false;
+	var dismissed = false;
+
+	function showBar() {
+		if (shown || dismissed) return;
+		shown = true;
+		bar.classList.add('visible');
+		document.body.classList.add('bar-visible');
+	}
+
+	window.dismissBar = function() {
+		dismissed = true;
+		bar.classList.remove('visible');
+		document.body.classList.remove('bar-visible');
+	};
+
+	window.addEventListener('scroll', function() {
+		var scrolled = window.scrollY || document.documentElement.scrollTop;
+		var total = document.documentElement.scrollHeight - window.innerHeight;
+		if (total > 0 && scrolled / total >= 0.5) {
+			showBar();
+		}
+	}, { passive: true });
+})();
+</script>
 </BODY>
 </HTML>
