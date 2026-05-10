@@ -511,13 +511,10 @@ div[style*="margin: 12px auto"] {
 	display: block;
 	background: #2563eb;
 	text-align: center;
-	padding: 14px 44px 14px 20px;
+	padding: 14px 20px;
 	text-decoration: none;
 	border-top: 3px solid #1d4ed8;
 	box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
-}
-.tfp-reveal {
-	position: relative;
 }
 .tfp-reveal-link:hover {
 	background: #1d4ed8;
@@ -2179,7 +2176,7 @@ Adding <INPUT type=text name="EFFoz" size=6 value="0" onchange="CalcEFF();"> <IN
 	window.addEventListener('scroll', function() {
 		var scrolled = window.scrollY || document.documentElement.scrollTop;
 		var total = document.documentElement.scrollHeight - window.innerHeight;
-		if (total > 0 && scrolled / total >= 0.5) {
+		if (total > 0 && scrolled / total >= 0.25) {
 			showBar();
 		}
 	}, { passive: true });
