@@ -176,9 +176,11 @@ table[border="1"] > tbody > tr > td {
 	background-color: #fef5b0;
 }
 /* Compact mode */
+/* Compact mode */
 body.compact td {
 	padding: 2px 4px !important;
 	line-height: 1.3 !important;
+	font-size: 13px !important;
 }
 body.compact td[colspan="2"][align="left"],
 body.compact td[colspan="2"][rowspan],
@@ -187,7 +189,9 @@ body.compact td[colspan="3"],
 body.compact td[class="ClassNORM"] {
 	padding: 4px 8px !important;
 	line-height: 1.3 !important;
+	font-size: 13px !important;
 }
+/* Shrink margin-bottom on instruction divs */
 body.compact div[style*="margin-bottom:6px"],
 body.compact div[style*="margin-bottom:8px"],
 body.compact div[style*="margin-bottom: 6px"],
@@ -197,6 +201,35 @@ body.compact div[style*="margin-bottom: 8px"] {
 body.compact div[style*="margin-bottom:10px"],
 body.compact div[style*="margin-bottom:12px"] {
 	margin-bottom: 4px !important;
+}
+/* Shrink note/callout boxes */
+body.compact div[style*="background:#eff6ff"],
+body.compact div[style*="background:#fef9c3"],
+body.compact div[style*="background:rgba(219"] {
+	padding: 3px 6px !important;
+	font-size: 12px !important;
+	margin-top: 2px !important;
+	margin-bottom: 2px !important;
+}
+/* Shrink goal ranges in left column */
+body.compact .goal-label,
+body.compact .goal-value {
+	font-size: 12px !important;
+	line-height: 1.2 !important;
+}
+/* Shrink section headers inside cells */
+body.compact div[style*="margin-bottom:6px"] strong,
+body.compact div[style*="margin-bottom:8px"] strong {
+	font-size: 12px !important;
+}
+/* Tighten site header in compact mode */
+body.compact .site-header {
+	padding: 6px 0 3px !important;
+}
+/* Compact label */
+body.compact #compactToggle + * {
+	font-weight: 600;
+	color: #2563eb;
 }
 /* Goal value styling - makes the target ranges stand out */
 .goal-label {
@@ -2178,7 +2211,7 @@ Adding <INPUT type=text name="EFFoz" size=6 inputmode="decimal" value="0" onchan
 <div style="text-align:center; margin-bottom:8px;">
   <label style="font-size:12px; color:#6b7280; cursor:pointer; user-select:none;">
     <input type="checkbox" id="compactToggle" onchange="toggleCompact();" style="margin-right:4px; cursor:pointer;">
-    Compact mode (reduce spacing)
+    Compact mode (smaller text &amp; tighter spacing)
   </label>
 </div>
 <p>Copyright © 2007-2010 by Jason T. Linhart. Copyright © 2013-2026 by TroubleFreePool.com. All rights reserved. Updated, March 2026.</p>
