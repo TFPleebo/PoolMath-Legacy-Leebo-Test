@@ -1886,7 +1886,7 @@ leftmargin=0 rightmargin=0 onload="DoLoaded();">
 <option>Imperial</option>
 </select></td></tr>
 
-<tr class=ClassSIZE><td align=center><strong>Size</strong></td><td colspan=2 align=center><nobr><INPUT type=text name="SIZE" size=6 value="10000" onchange="CalcAll();"><INPUT type=text name="SIZEunit" readonly size=7 value="gallons" class=ClassSIZE onfocus="GoTo(document.F.FCfrom);"></nobr></td><td colspan=2 class=ClassNORM align=center style="padding:12px 16px;"><span style="font-size:13px; color:#666;">💡 Hover over result fields for unit conversions</span></td></tr>
+<tr class=ClassSIZE><td align=center><strong>Size</strong></td><td colspan=2 align=center><nobr><INPUT type=text name="SIZE" size=6 inputmode="decimal" value="10000" onchange="CalcAll();"><INPUT type=text name="SIZEunit" readonly size=7 value="gallons" class=ClassSIZE onfocus="GoTo(document.F.FCfrom);"></nobr></td><td colspan=2 class=ClassNORM align=center style="padding:12px 16px;"><span style="font-size:13px; color:#666;">💡 Hover over result fields for unit conversions</span></td></tr>
 
 <tr class=ClassFC>
 <td rowspan=2 align=center><strong>FC</strong></td>
@@ -1894,7 +1894,7 @@ leftmargin=0 rightmargin=0 onload="DoLoaded();">
 <td rowspan=2 colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>Bleach:</strong></div>
 <div style="margin-bottom:8px; padding-left:12px;">Add <INPUT type=text name="FC1oz" size=9 value="0" readonly class=ClassFC onmouseover="withTooltip(this, function() { StatusBleach(document.F.FC1oz.value); });">
-of <INPUT type=text name="FCpcnt" size=4 value="6" onchange="CalcFC(); SaveSettings();"> <INPUT type=text name="FCtrade" size=6 value="weight" readonly class=ClassFC> % bleach. Jug size
+of <INPUT type=text name="FCpcnt" size=4 inputmode="decimal" value="6" onchange="CalcFC(); SaveSettings();"> <INPUT type=text name="FCtrade" size=6 value="weight" readonly class=ClassFC> % bleach. Jug size
 <select name="FCjug" onchange="SaveSettings();">
 <option selected>96 oz</option>
 <option>128 oz</option>
@@ -1920,8 +1920,8 @@ or <INPUT type=text name="FC2vol" size=8 value="0" readonly class=ClassFC onmous
 <div style="font-size:13px; color:#1e40af; background:#eff6ff; border-left:3px solid #93c5fd; padding:6px 10px; border-radius:4px; margin-top:4px;">ℹ️ <strong>Note:</strong> Dichlor and trichlor add CYA and lower pH. Cal-hypo adds CH.</div></td></tr>
 
 <tr class=ClassFC>
-<td align=center><INPUT type=text name="FCfrom" size=4 value="4" onchange="CalcFC();"></td>
-<td align=center><INPUT type=text name="FCto" size=4 value="4" onchange="CalcFC(); SaveSettings();"></td>
+<td align=center><INPUT type=text name="FCfrom" size=4 inputmode="decimal" value="4" onchange="CalcFC();"></td>
+<td align=center><INPUT type=text name="FCto" size=4 inputmode="decimal" value="4" onchange="CalcFC(); SaveSettings();"></td>
 </tr>
 
 <tr class=ClassPH><td rowspan=2 align=center><strong>pH</strong></td>
@@ -1949,8 +1949,8 @@ or <INPUT type=text name="PHD2vol" size=7 value="0" readonly class=ClassPH onmou
 <div style="font-size:13px; color:#1e40af; background:#eff6ff; border-left:3px solid #93c5fd; padding:6px 10px; border-radius:4px; margin-top:4px;">ℹ️ <strong>Note:</strong> pH calculations depend on TA and Borate. Results are approximate and can be off significantly for large pH changes. Changing your pH will also change your TA.</div></td></tr>
 
 <tr class="ClassPH">
-<td align=center><INPUT type=text name="PHfrom" size=4 value="7.5" onchange="CalcPH(); CalcCSIfrom();"></td>
-<td align=center><INPUT type=text name="PHto" size=4 value="7.5" onchange="CalcPH(); CalcCSIto();"></td>
+<td align=center><INPUT type=text name="PHfrom" size=4 inputmode="decimal" value="7.5" onchange="CalcPH(); CalcCSIfrom();"></td>
+<td align=center><INPUT type=text name="PHto" size=4 inputmode="decimal" value="7.5" onchange="CalcPH(); CalcCSIto();"></td>
 </tr>
 
 <tr class=ClassTA><td rowspan=2 align=center><strong>TA</strong></td>
@@ -1964,8 +1964,8 @@ or <INPUT type=text name="TAvol" size=8 value="0" readonly class=ClassTA onmouse
 <div style="font-size:13px; color:#1e40af; background:#eff6ff; border-left:3px solid #93c5fd; padding:6px 10px; border-radius:4px; margin-top:4px;">ℹ️ <strong>Note:</strong> Adding baking soda will also raise your pH just a little.</div></td></tr>
 
 <tr class=ClassTA>
-<td align=center><INPUT type=text name="TAfrom" size=4 value="100" onchange="CalcTA(); CalcPH(); CalcCSIfrom();"></td>
-<td align=center><INPUT type=text name="TAto" size=4 value="100" onchange="CalcTA(); CalcCSIto();"></td>
+<td align=center><INPUT type=text name="TAfrom" size=4 inputmode="decimal" value="100" onchange="CalcTA(); CalcPH(); CalcCSIfrom();"></td>
+<td align=center><INPUT type=text name="TAto" size=4 inputmode="decimal" value="100" onchange="CalcTA(); CalcCSIto();"></td>
 </tr>
 
 <tr class=ClassCH><td rowspan=2 align=center><strong>CH</strong></td>
@@ -1977,11 +1977,11 @@ or <INPUT type=text name="CH1vol" size=9 value="0" readonly class=ClassCH onmous
 <div style="margin-bottom:8px; padding-left:12px;">Or add <INPUT type=text name="CH2oz" size=8 value="0" readonly class=ClassCH onmouseover="withTooltip(this, function() { StatusWeight(document.F.CH2oz.value); });"> by weight
 or <INPUT type=text name="CH2vol" size=9 value="0" readonly class=ClassCH onmouseover="withTooltip(this, function() { StatusVolume(document.F.CH2vol.value); });"> by volume of calcium chloride dihydrate</div>
 <div style="margin-bottom:6px;"><strong>To lower CH:</strong></div>
-<div style="padding-left:12px;">Replace <INPUT type=text name="CHpcnt" size=5 value="some" readonly class=ClassCH onmouseover="withTooltip(this, function() { StatusPcnt(document.F.CHpcnt.value); });"> of the water with new water (CH of <INPUT type=text name="CHfill" size=4 value="0" onchange="CalcCH(); SaveSettings();">)</div></td></tr>
+<div style="padding-left:12px;">Replace <INPUT type=text name="CHpcnt" size=5 value="some" readonly class=ClassCH onmouseover="withTooltip(this, function() { StatusPcnt(document.F.CHpcnt.value); });"> of the water with new water (CH of <INPUT type=text name="CHfill" size=4 inputmode="decimal" value="0" onchange="CalcCH(); SaveSettings();">)</div></td></tr>
 
 <tr class=ClassCH>
-<td align=center><INPUT type=text name="CHfrom" size=4 value="260" onchange="CalcCH(); CalcCSIfrom();"></td>
-<td align=center><INPUT type=text name="CHto" size=4 value="260" onchange="CalcCH(); CalcCSIto();"></td>
+<td align=center><INPUT type=text name="CHfrom" size=4 inputmode="decimal" value="260" onchange="CalcCH(); CalcCSIfrom();"></td>
+<td align=center><INPUT type=text name="CHto" size=4 inputmode="decimal" value="260" onchange="CalcCH(); CalcCSIto();"></td>
 </tr>
 
 <tr class=ClassCYA><td rowspan=2 align=center><strong>CYA</strong></td>
@@ -1996,17 +1996,17 @@ or <INPUT type=text name="CYA1vol" size=8 value="0" readonly class=ClassCYA onmo
 <div style="font-size:13px; color:#1e40af; background:#eff6ff; border-left:3px solid #93c5fd; padding:6px 10px; border-radius:4px; margin-top:4px;">ℹ️ <strong>Note:</strong> It can take solid stabilizer 24 to 48 hours to dissolve.</div></td></tr>
 
 <tr class=ClassCYA>
-<td align=center><INPUT type=text name="CYAfrom" size=4 value="40" onchange="CalcCYA(); CalcCSIfrom(); CalcSUG();"></td>
-<td align=center><INPUT type=text name="CYAto" size=4 value="40" onchange="CalcCYA(); CalcCSIto();"></td>
+<td align=center><INPUT type=text name="CYAfrom" size=4 inputmode="decimal" value="40" onchange="CalcCYA(); CalcCSIfrom(); CalcSUG();"></td>
+<td align=center><INPUT type=text name="CYAto" size=4 inputmode="decimal" value="40" onchange="CalcCYA(); CalcCSIto();"></td>
 </tr>
 
-<tr class=ClassSALT><td align=center><strong>Salt</strong></td><td align=center><INPUT type=text name="SALTfrom" size=5 value="0" onchange="CalcSALT(); CalcCSIfrom();"></td><td align=center><INPUT type=text name="SALTto" size=5 value="0" onchange="CalcSALT(); CalcCSIto();"></td><td colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
+<tr class=ClassSALT><td align=center><strong>Salt</strong></td><td align=center><INPUT type=text name="SALTfrom" size=5 inputmode="decimal" value="0" onchange="CalcSALT(); CalcCSIfrom();"></td><td align=center><INPUT type=text name="SALTto" size=5 inputmode="decimal" value="0" onchange="CalcSALT(); CalcCSIto();"></td><td colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>To raise Salt:</strong></div>
 <div style="margin-bottom:8px; padding-left:12px;">Add <INPUT type=text name="SALTlb" size=8 value="0" readonly class=ClassSALT onmouseover="withTooltip(this, function() { StatusBags(document.F.SALTlb.value); });" onfocus="GoTo(document.F.BORfrom);"> of salt</div>
 <div style="margin-bottom:6px;"><strong>To lower Salt:</strong></div>
 <div style="padding-left:12px;">Replace <INPUT type=text name="SALTpcnt" size=4 value="some" readonly class=ClassSALT onmouseover="withTooltip(this, function() { StatusPcnt(document.F.SALTpcnt.value); });"> of the water with new water</div></td></tr>
 
-<tr class=ClassBOR><td align=center><strong>Borate</strong></td><td align=center><INPUT type=text name="BORfrom" size=4 value="0" onchange="CalcBOR(); CalcPH(); CalcCSIfrom();"></td><td align=center><INPUT type=text name="BORto" size=4 value="0" onchange="CalcBOR(); CalcCSIto();"></td><td colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
+<tr class=ClassBOR><td align=center><strong>Borate</strong></td><td align=center><INPUT type=text name="BORfrom" size=4 inputmode="decimal" value="0" onchange="CalcBOR(); CalcPH(); CalcCSIfrom();"></td><td align=center><INPUT type=text name="BORto" size=4 inputmode="decimal" value="0" onchange="CalcBOR(); CalcCSIto();"></td><td colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>To raise Borate:</strong></div>
 <div style="margin-bottom:4px; padding-left:12px;">Add <INPUT type=text name="BORoz" size=8 value="0" readonly class=ClassBOR onmouseover="withTooltip(this, function() { StatusBorax(document.F.BORoz.value); });" onfocus="GoTo(document.F.TEMP);"> by weight
 or <INPUT type=text name="BORvol" size=9 value="0" readonly class=ClassBOR onmouseover="withTooltip(this, function() { StatusVolume(document.F.BORvol.value); });"> by volume of <select name="BORpop" onchange="CalcBOR(); SaveSettings();">
@@ -2019,7 +2019,7 @@ or <INPUT type=text name="BORvol" size=9 value="0" readonly class=ClassBOR onmou
 <div style="margin-bottom:8px; padding-left:12px;">Replace <INPUT type=text name="BORpcnt" size=4 value="some" readonly class=ClassBOR onmouseover="withTooltip(this, function() { StatusPcnt(document.F.BORpcnt.value); });"> of the water with new water</div>
 <div style="font-size:13px; color:#1e40af; background:#eff6ff; border-left:3px solid #93c5fd; padding:6px 10px; border-radius:4px; margin-top:4px;">ℹ️ <strong>Note:</strong> The pH should be tested and adjusted as needed after increasing the borate level.</div></td></tr>
 
-<tr class=ClassTEMP><td align=center><strong>Temp</strong></td><td colspan=2 align=center><nobr><INPUT type=text name="TEMP" size=3 value="84" onchange="CalcCSIfrom(); CalcCSIto();"><input type=text name="TEMPunit" size=10 readonly value="Fahrenheit" class=ClassTEMP onfocus="GoTo(document.F.SZwid);"></nobr></td><td colspan=2 class=ClassNORM align=center style="padding:12px 16px;"><span style="font-size:13px; color:#666;">Water temperature for CSI calculation</span></td></tr>
+<tr class=ClassTEMP><td align=center><strong>Temp</strong></td><td colspan=2 align=center><nobr><INPUT type=text name="TEMP" size=3 inputmode="decimal" value="84" onchange="CalcCSIfrom(); CalcCSIto();"><input type=text name="TEMPunit" size=10 readonly value="Fahrenheit" class=ClassTEMP onfocus="GoTo(document.F.SZwid);"></nobr></td><td colspan=2 class=ClassNORM align=center style="padding:12px 16px;"><span style="font-size:13px; color:#666;">Water temperature for CSI calculation</span></td></tr>
 
 <tr class=ClassCSI><td align=center><strong>CSI</strong></td><td align=center><INPUT type=text name="CSIfrom" size=5 value="0" readonly class=ClassCSI onmouseover="withTooltip(this, function() { StatusCSI(document.F.CSIfrom.value); });"></td><td align=center><INPUT type=text name="CSIto" size=5 value="0" readonly class=ClassCSI onmouseover="withTooltip(this, function() { StatusCSI(document.F.CSIto.value); });"></td><td colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>Calcite Saturation Index</strong> <span style="color:#666;">(requires pH, TA, CH, CYA, Temp; uses Borate, Salt)</span></div>
@@ -2080,17 +2080,17 @@ or <INPUT type=text name="BORvol" size=9 value="0" readonly class=ClassBOR onmou
 <div style="display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; margin-bottom:12px;">
 <div style="display:flex; align-items:center; gap:6px;">
 <label style="font-weight:500; color:#374151;">Width:</label>
-<INPUT type=text name="SZwid" size=4 value="0" onchange="CalcSZ();" style="width:60px;">
+<INPUT type=text name="SZwid" size=4 inputmode="decimal" value="0" onchange="CalcSZ();" style="width:60px;">
 <INPUT type=text name="SZunit1" size=2 value="ft" readonly onfocus="GoTo((document.F.SZpop.selectedIndex==2)?document.F.SZdeep:document.F.SZlen);" style="width:30px; border:none; background:transparent; padding:0;">
 </div>
 <div style="display:flex; align-items:center; gap:6px;">
 <label style="font-weight:500; color:#374151;">Length:</label>
-<INPUT type=text name="SZlen" size=4 value="0" onchange="CalcSZ();" style="width:60px;">
+<INPUT type=text name="SZlen" size=4 inputmode="decimal" value="0" onchange="CalcSZ();" style="width:60px;">
 <INPUT type=text name="SZunit2" size=2 value="ft" readonly onfocus="GoTo(document.F.SZdeep);" style="width:30px; border:none; background:transparent; padding:0;">
 </div>
 <div style="display:flex; align-items:center; gap:6px;">
 <label style="font-weight:500; color:#374151;">Depth:</label>
-<INPUT type=text name=SZdeep size=4 value="0" onchange="CalcSZ();" style="width:60px;">
+<INPUT type=text name=SZdeep size=4 inputmode="decimal" value="0" onchange="CalcSZ();" style="width:60px;">
 <INPUT type=text name="SZunit3" size=2 value="ft" readonly onfocus="GoTo(document.F.SZvol);" style="width:30px; border:none; background:transparent; padding:0;">
 </div>
 </div>
@@ -2112,7 +2112,7 @@ or <INPUT type=text name="BORvol" size=9 value="0" readonly class=ClassBOR onmou
 <div style="margin:20px 0; padding:16px 20px; background:linear-gradient(135deg, #fefce8 0%, #fef9c3 100%); border:1px solid #fde047; border-radius:10px; box-shadow:0 2px 4px rgba(0,0,0,0.04);">
 <h3 style="margin:0 0 12px 0; font-size:15px; color:#a16207;">🧪 Effects of Adding Chemicals</h3>
 <div style="margin-bottom:12px;">
-Adding <INPUT type=text name="EFFoz" size=6 value="0" onchange="CalcEFF();"> <INPUT type=text name="EFFunit" size=3 value="oz" readonly> of <select name="EFFpop" onchange="CalcEFF();">
+Adding <INPUT type=text name="EFFoz" size=6 inputmode="decimal" value="0" onchange="CalcEFF();"> <INPUT type=text name="EFFunit" size=3 value="oz" readonly> of <select name="EFFpop" onchange="CalcEFF();">
 <option>5.25% bleach</option>
 <option selected>6% bleach</option>
 <option>8.25% bleach</option>
