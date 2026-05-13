@@ -2239,7 +2239,17 @@ Adding <INPUT type=text name="EFFoz" size=6 inputmode="decimal" value="0" onchan
 		document.body.classList.add('bar-visible');
 	}
 
-// Compact mode toggle
+	window.addEventListener('scroll', function() {
+		var scrolled = window.scrollY || document.documentElement.scrollTop;
+		var total = document.documentElement.scrollHeight - window.innerHeight;
+		if (total > 0 && scrolled / total >= 0.25) {
+			showBar();
+		}
+	}, { passive: true });
+})();
+</script>
+
+<script>
 function toggleCompact() {
 	var on = document.getElementById('compactToggle').checked;
 	document.body.classList.toggle('compact', on);
@@ -2254,15 +2264,6 @@ function initCompact() {
 	}
 }
 document.addEventListener('DOMContentLoaded', initCompact);
-
-	window.addEventListener('scroll', function() {
-		var scrolled = window.scrollY || document.documentElement.scrollTop;
-		var total = document.documentElement.scrollHeight - window.innerHeight;
-		if (total > 0 && scrolled / total >= 0.25) {
-			showBar();
-		}
-	}, { passive: true });
-})();
 </script>
 </BODY>
 </HTML>
