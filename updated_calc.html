@@ -140,40 +140,48 @@ table[border="1"] > tbody > tr > td {
 	font-weight: 500;
 }
 .ClassSIZE {
-	background-color: #fef3c7;
+	background-color: #fde68a;
 }
 .ClassFC {
-	background-color: #fef9c3;
+	background-color: #fef08a;
 }
 .ClassPH {
-	background-color: #fce7f3;
+	background-color: #fbcfe8;
 }
 .ClassTA {
-	background-color: #dcfce7;
+	background-color: #bbf7d0;
 }
 .ClassCH {
-	background-color: #e0f2fe;
+	background-color: #bae6fd;
 }
 .ClassCYA {
-	background-color: #fef9c3;
+	background-color: #fef08a;
 }
 .ClassSALT {
-	background-color: #f3f4f6;
+	background-color: #e5e7eb;
 }
 .ClassBOR {
-	background-color: #fce7f3;
+	background-color: #fbcfe8;
 }
 .ClassTEMP {
-	background-color: #fef3c7;
+	background-color: #fde68a;
 }
 .ClassCSI {
-	background-color: #dcfce7;
+	background-color: #bbf7d0;
 }
 .ClassSUG {
-	background-color: #e0f2fe;
+	background-color: #bae6fd;
 }
 .ClassGOALS {
-	background-color: #fef9c3;
+	background-color: #fef08a;
+}
+/* Compact mode */
+body.compact td {
+	padding: 2px 4px;
+}
+body.compact td[colspan="2"][align="left"], body.compact td[colspan="2"][rowspan] {
+	padding: 4px 8px;
+	line-height: 1.3;
 }
 /* Goal value styling - makes the target ranges stand out */
 .goal-label {
@@ -1202,15 +1210,15 @@ function CalcEFF()
 		}
 	switch (document.F.EFFpop.selectedIndex) {
 
-	case 0:					// 5.25% bleach
+	case 0:					// 5.25% liquid chlorine
 		oz=oz*525/600;
-	case 1:					// 6% bleach
+	case 1:					// 6% liquid chlorine
 		oz=oz*600/825;
 	case 2:
 		oz=oz*0.84867552;
-	case 3:					// 10% bleach
+	case 3:					// 10% liquid chlorine
 		oz=oz*100/125;
-	case 4:					// 12.5% bleach
+	case 4:					// 12.5% liquid chlorine
 		result="raise FC by "+Format(oz / GetGallons() * 976.562);
 		result=result+" and raise Salt by "+Format(oz / GetGallons() *
 			1607);
@@ -1871,6 +1879,10 @@ leftmargin=0 rightmargin=0 onload="DoLoaded();">
   </div>
 </div>
 
+<div style="text-align:center; padding: 4px 0 8px;">
+  <a href="#setup" style="font-size:13px; color:#2563eb; text-decoration:none; font-weight:500;">⚙️ New here? Jump to pool setup ↓</a>
+</div>
+
 <noscript>
   <h1>Warning – JavaScript must be enabled for Pool Math to work!</h1>
 </noscript>
@@ -1886,13 +1898,13 @@ leftmargin=0 rightmargin=0 onload="DoLoaded();">
 <option>Imperial</option>
 </select></td></tr>
 
-<tr class=ClassSIZE><td align=center><strong>Size</strong></td><td colspan=2 align=center><nobr><INPUT type=text name="SIZE" size=6 inputmode="decimal" value="10000" onchange="CalcAll();"><INPUT type=text name="SIZEunit" readonly size=7 value="gallons" class=ClassSIZE onfocus="GoTo(document.F.FCfrom);"></nobr></td><td colspan=2 class=ClassNORM align=center style="padding:12px 16px;"><span style="font-size:13px; color:#666;">💡 Hover over result fields for unit conversions</span></td></tr>
+<tr class=ClassSIZE><td align=center><strong>Size</strong></td><td colspan=2 align=center><nobr><INPUT type=text name="SIZE" size=6 inputmode="decimal" value="10000" onchange="CalcAll();"><INPUT type=text name="SIZEunit" readonly size=7 value="gallons" class=ClassSIZE onfocus="GoTo(document.F.FCfrom);"></nobr></td><td colspan=2 class=ClassNORM align=center style="padding:12px 16px;"><span style="font-size:13px; color:#666;">💡 Tap or hover result fields for unit conversions</span></td></tr>
 
 <tr class=ClassFC>
 <td rowspan=2 align=center><strong>FC</strong></td>
 <td colspan=2 style="height: 100%;"><center><span class="goal-label">Rec:</span> <span id="FCrec" class="goal-value not-setup">Not Setup</span><br><span class="goal-label">Ideal:</span> <span id="FCideal" class="goal-value not-setup">Not Setup</span></center></td>
 <td rowspan=2 colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
-<div style="margin-bottom:6px;"><strong>Bleach:</strong></div>
+<div style="margin-bottom:6px;"><strong>Liquid Chlorine:</strong></div>
 <div style="margin-bottom:8px; padding-left:12px;">Add <INPUT type=text name="FC1oz" size=9 value="0" readonly class=ClassFC onmouseover="withTooltip(this, function() { StatusBleach(document.F.FC1oz.value); });">
 of <INPUT type=text name="FCpcnt" size=4 inputmode="decimal" value="6" onchange="CalcFC(); SaveSettings();"> <INPUT type=text name="FCtrade" size=6 value="weight" readonly class=ClassFC> % bleach. Jug size
 <select name="FCjug" onchange="SaveSettings();">
@@ -2040,7 +2052,7 @@ or <INPUT type=text name="BORvol" size=9 value="0" readonly class=ClassBOR onmou
 <div style="font-size:13px; color:#666;">Suggested target FC levels based on the current CYA level for outdoor pools.</div>
 <div style="font-size:13px; color:#b45309; background:#fef9c3; border-left:3px solid #f59e0b; padding:6px 10px; border-radius:4px; margin-top:8px;">⚠️ <strong>Note:</strong> Most test kits can't detect CYA below ~20 ppm. If your test reads 0, assume it's at least 20 unless you're certain it's truly zero (e.g., freshly filled pool). If CYA is above 90, lower it with water replacement before starting SLAM.</div></td></tr>
 
-<tr class=ClassGOALS><td colspan=3 align=center>Suggested Goal Levels</td>
+<tr class=ClassGOALS><td colspan=3 align=center><a name="setup" id="setup"></a>Suggested Goal Levels</td>
 <td colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="display:grid; grid-template-columns:auto 1fr; gap:6px 12px; margin-bottom:10px; align-items:center;">
 <strong>Goal levels from:</strong>
@@ -2113,11 +2125,11 @@ or <INPUT type=text name="BORvol" size=9 value="0" readonly class=ClassBOR onmou
 <h3 style="margin:0 0 12px 0; font-size:15px; color:#a16207;">🧪 Effects of Adding Chemicals</h3>
 <div style="margin-bottom:12px;">
 Adding <INPUT type=text name="EFFoz" size=6 inputmode="decimal" value="0" onchange="CalcEFF();"> <INPUT type=text name="EFFunit" size=3 value="oz" readonly> of <select name="EFFpop" onchange="CalcEFF();">
-<option>5.25% bleach</option>
-<option selected>6% bleach</option>
-<option>8.25% bleach</option>
-<option>10% bleach</option>
-<option>12.5% bleach</option>
+<option>5.25% liquid chlorine</option>
+<option selected>6% liquid chlorine</option>
+<option>8.25% liquid chlorine</option>
+<option>10% liquid chlorine</option>
+<option>12.5% liquid chlorine</option>
 <option>trichlor</option>
 <option>dichlor</option>
 <option>48% cal-hypo</option>
@@ -2148,6 +2160,12 @@ Adding <INPUT type=text name="EFFoz" size=6 inputmode="decimal" value="0" onchan
 
 </FORM>
 
+<div style="text-align:center; margin-bottom:8px;">
+  <label style="font-size:12px; color:#6b7280; cursor:pointer; user-select:none;">
+    <input type="checkbox" id="compactToggle" onchange="toggleCompact();" style="margin-right:4px; cursor:pointer;">
+    Compact mode (reduce spacing)
+  </label>
+</div>
 <p>Copyright © 2007-2010 by Jason T. Linhart. Copyright © 2013-2026 by TroubleFreePool.com. All rights reserved. Updated, March 2026.</p>
 
 </td></tr></table>
@@ -2172,6 +2190,22 @@ Adding <INPUT type=text name="EFFoz" size=6 inputmode="decimal" value="0" onchan
 		bar.classList.add('visible');
 		document.body.classList.add('bar-visible');
 	}
+
+// Compact mode toggle
+function toggleCompact() {
+	var on = document.getElementById('compactToggle').checked;
+	document.body.classList.toggle('compact', on);
+	document.cookie = 'compactMode=' + (on ? '1' : '0') + '; path=/; max-age=' + (365*24*60*60);
+}
+function initCompact() {
+	var match = document.cookie.match(/compactMode=([01])/);
+	if (match && match[1] === '1') {
+		document.body.classList.add('compact');
+		var cb = document.getElementById('compactToggle');
+		if (cb) cb.checked = true;
+	}
+}
+document.addEventListener('DOMContentLoaded', initCompact);
 
 	window.addEventListener('scroll', function() {
 		var scrolled = window.scrollY || document.documentElement.scrollTop;
