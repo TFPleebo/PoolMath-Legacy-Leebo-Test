@@ -1883,8 +1883,8 @@ leftmargin=0 rightmargin=0 onload="DoLoaded();">
 <tr><td align=left>
 
 <header class="site-header" role="banner">
-	<div class="header-title">Pool Math</div>
 	<a class="brand-link" href="http://www.troublefreepool.com" aria-label="TroubleFreePool home" onclick="if(typeof gtag!=='undefined'){gtag('event','calc_banner_click',{'location':'header_logo'});}">
+	<div class="header-title">PoolMath</div>
 		<div class="brand-block">
 			<svg class="brand-logo" viewBox="0 0 1623 866" role="img" aria-label="TroubleFreePool logo" focusable="false" xmlns="http://www.w3.org/2000/svg">
 				<g fill="currentColor" fill-rule="evenodd">
@@ -1913,18 +1913,18 @@ leftmargin=0 rightmargin=0 onload="DoLoaded();">
   line-height: 1.6;
 ">
   <div style="font-size: 18px; font-weight: 600; color: #1a5276; margin-bottom: 12px;">
-    📱 Pool Math is better on mobile
+    📱 PoolMath is better on mobile
   </div>
 
   <p style="margin: 0 auto 16px auto; max-width: 580px; color: #444; text-align: center;">
-    You're viewing the original Pool Math calculator. This page is provided for legacy reference
+    You're viewing the original PoolMath calculator. This page is provided for legacy reference
     and quick calculations, but is no longer actively maintained. Some calculations, targets,
     or recommendations may differ from current Trouble Free Pool guidance.
   </p>
 
   <p style="margin: 0 0 16px 0; color: #333; font-weight: 500;">
     For fully supported, up-to-date calculations and the best experience,<br>
-    download the <strong>Pool Math App</strong>:
+    download the <strong>PoolMath App</strong>:
   </p>
 
   <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
@@ -1972,7 +1972,7 @@ leftmargin=0 rightmargin=0 onload="DoLoaded();">
 <td rowspan=2 colspan=2 align=left style="line-height:1.5; padding:8px 12px;">
 <div style="margin-bottom:6px;"><strong>Liquid Chlorine:</strong></div>
 <div style="margin-bottom:8px; padding-left:12px;">Add <INPUT type=text name="FC1oz" size=9 value="0" readonly class=ClassFC onmouseover="withTooltip(this, function() { StatusBleach(document.F.FC1oz.value); });">
-of <INPUT type=text name="FCpcnt" size=4 value="6" onchange="CalcFC(); SaveSettings();"> <INPUT type=text name="FCtrade" size=6 value="weight" readonly class=ClassFC> % bleach. Jug size
+of <INPUT type=text name="FCpcnt" size=4 value="6" onchange="CalcFC(); SaveSettings();"> <INPUT type=text name="FCtrade" size=6 value="weight" readonly class=ClassFC> % liquid chlorine. Jug size
 <select name="FCjug" onchange="SaveSettings();">
 <option selected>96 oz</option>
 <option>128 oz</option>
@@ -2024,7 +2024,7 @@ or <INPUT type=text name="PHU2vol" size=8 value="0" readonly class=ClassPH onmou
 </select> muriatic acid</div>
 <div style="margin-bottom:8px; padding-left:12px;">Or add <INPUT type=text name="PHD2oz" size=8 value="0" readonly class=ClassPH onmouseover="withTooltip(this, function() { StatusWeight(document.F.PHD2oz.value); });"> by weight
 or <INPUT type=text name="PHD2vol" size=7 value="0" readonly class=ClassPH onmouseover="withTooltip(this, function() { StatusVolume(document.F.PHD2vol.value); });"> by volume of dry acid</div>
-<div style="font-size:13px; color:#1e40af; background:#eff6ff; border-left:3px solid #93c5fd; padding:6px 10px; border-radius:4px; margin-top:4px;">ℹ️ <strong>Note:</strong> pH calculations depend on TA and Borate. Results are approximate and can be off significantly for large pH changes. Changing your pH will also change your TA.</div></td></tr>
+<div style="font-size:13px; color:#1e40af; background:#eff6ff; border-left:3px solid #93c5fd; padding:6px 10px; border-radius:4px; margin-top:4px;">ℹ️ pH calculations depend on TA and Borate and are approximate. Raising pH will also raise TA.</div></td></tr>
 
 <tr class="ClassPH">
 <td align=center><INPUT type=text name="PHfrom" size=4 value="7.5" onchange="CalcPH(); CalcCSIfrom();"></td>
